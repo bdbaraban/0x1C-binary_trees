@@ -176,5 +176,6 @@ implemented binary, binary search, AVL, and Max Binary Heap trees.
   * What are the average time complexities of those operations on a Binary Heap (one answer per line):
 
 ## Authors
+
 * **Brennan Dov Baraban** - [bdbaraban](https://github.com/bdbaraban)
-* **Fernando González-Morales** - [ ]( )
+* **Fernando González-Morales** - [fgonza52](https://github.com/fgonza52)
