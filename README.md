@@ -177,5 +177,5 @@ implemented binary, binary search, AVL, and Max Binary Heap trees.
 
 ## Authors
 
-* **Brennan Dov Baraban** - [bdbaraban](https://github.com/bdbaraban)
-* **Fernando González-Morales** - [fgonza52](https://github.com/fgonza52)
+* **Brennan Dov Baraban** - <[bdbaraban](https://github.com/bdbaraban)>
+* **Fernando González-Morales** - <[fgonza52](https://github.com/fgonza52)>
