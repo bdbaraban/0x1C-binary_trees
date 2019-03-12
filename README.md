@@ -1,4 +1,4 @@
-# C - Binary trees
+# c - binary trees
 
 This was a partner project in which we learned about the details, advantages,
 and disadvantages of using trees as data structures. We learned about how to
@@ -59,6 +59,21 @@ Function Prototypes
 | `102-binary_tree_is_complete.c`  | `int binary_tree_is_complete(const binary_tree_t *tree);`                                        |
 | `103-binary_tree_rotate_left.c`  | `binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);`                                   |
 | `104-binary_tree_rotate_right.c` | `binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);`                                  |
+| `110-binary_tree_is_bst.c`       | `int binary_tree_is_bst(const binary_tree_t *tree);`                                             |
+| `111-bst_insert.c`               | `bst_t *bst_insert(bst_t **tree, int value);`                                                    |
+| `112-array_to_bst.c`             | `bst_t *array_to_bst(int *array, size_t size);`                                                  |
+| `113-bst_search.c`               | `bst_t *bst_search(const bst_t *tree, int value);`                                               |
+| `114-bst_remove.c`               | `bst_t *bst_remove(bst_t *root, int value);`                                                     |
+| `120-binary_tree_is_avl.c`       | `int binary_tree_is_avl(const binary_tree_t *tree);`                                             |
+| `121-avl_insert.c`               | `avl_t *avl_insert(avl_t **tree, int value);`                                                    |
+| `122-array_to_avl.c`             | `avl_t *array_to_avl(int *array, size_t size);`                                                  |
+| `123-avl_remove.c`               | `avl_t *avl_remove(avl_t *root, int value);`                                                     |
+| `124-sorted_array_to_avl.c`      | `avl_t *sorted_array_to_avl(int *array, size_t size);`                                           |
+| `130-binary_tree_is_heap.c`      | `int binary_tree_is_heap(const binary_tree_t *tree);`                                            |
+| `131-heap_insert.c`              | `heap_t *heap_insert(heap_t **root, int value)`                                                  |
+| `132-array_to_heap.c`            | `heap_t *array_to_heap(int *array, size_t size);`                                                |
+| `133-heap_extract.c`             | `int heap_extract(heap_t **root);`                                                               |
+| `134-heap_to_sorted_array.c`     | `int *heap_to_sorted_array(heap_t *heap, size_t *size);`                                         |
 
 ## Tasks
 
@@ -177,28 +192,41 @@ that performs a right-rotation on a binary tree.
   * Returns a pointer to the new root node of the tree after rotation.
 
 * **24. Is BST**
-  * `110-binary_tree_is_bst.c`
-  * Write a function that checks if a binary tree is a valid Binary Search Tree
+  * [110-binary_tree_is_bst.c](./110-binary_tree_is_bst.c): C function that
+checks if a binary tree is a valid binary search tree.
+  * Returns `1` if the tree is a valid BST, `0` otherwise.
 
 * **25. BST - Insert**
-  * `111-bst_insert.c`
-  * Write a function that inserts a value in a Binary Search Tree
+  * [111-bst_insert.c](./111-bst_insert.c): C function that inserts a value into
+a binary search tree.
+  * Returns a pointer to the new node, or `NULL` on failure.
+  * If the tree is `NULL`, the value becomes the root node.
+  * The value is ignored if it is already present in the tree.
 
 * **26. BST - Array to BST**
-  * `112-array_to_bst.c`
-  * Write a function that builds a Binary Search Tree from an array
+  * [112-array_to_bst.c](./112-array_to_bst.c): C function that builds a binary
+search tree from an array.
+  * Returns a pointer to the root node of the created tree, or `NULL` on failure.
 
 * **27. BST - Search**
-  * `113-bst_search.c`
-  * Write a function that searches for a value in a Binary Search Tree
+  * [113-bst_search.c](./113-bst_search.c): C function that searches for a value
+in a binary search tree.
+  * If the value is matched in the BST, returns a pointer to the matched node.
+  * Otherwise, returns `NULL`.
 
 * **28. BST - Remove**
-  * `114-bst_remove.c`
-  * Write a function that removes a node from a Binary Search Tree
+  * [114-bst_remove.c](./114-bst_remove.c): C function that removes a node from
+a binary search tree.
+  * Returns a pointer to the new root node of the tree after deletion.
+  * If the node to be deleted has two children, it is replaced with its first
+in-order successor.
 
 * **29. Big O #BST**
-  * `115-O`
-  * What are the average time complexities of those operations on a Binary Search Tree (one answer per line):
+  * [115-O](./115-O): Text file containing the average time complexities of
+binary search tree operations (one answer per line):
+    * Inserting the value `n`.
+    * Removing the node with the value `n`.
+    * Searching for a node in a BST of size `n`.
 
 * **30. Is AVL**
   * `120-binary_tree_is_avl.c`
@@ -250,5 +278,5 @@ that performs a right-rotation on a binary tree.
 
 ## Authors
 
-* **Brennan Dov Baraban** - <[bdbaraban](https://github.com/bdbaraban)>
-* **Fernando González-Morales** - <[fgonza52](https://github.com/fgonza52)>
+* **Brennan Dov Baraban** <[bdbaraban](https://github.com/bdbaraban)>
+* **Fernando González-Morales** <[fgonza52](https://github.com/fgonza52)>
