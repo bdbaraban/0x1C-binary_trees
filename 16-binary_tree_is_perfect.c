@@ -3,7 +3,8 @@
 int is_leaf(const binary_tree_t *node);
 size_t depth(const binary_tree_t *tree);
 const binary_tree_t *get_leaf(const binary_tree_t *tree);
-int is_perfect_recursive(const binary_tree_t *tree, size_t leaf_depth, size_t);
+int is_perfect_recursive(const binary_tree_t *tree,
+		size_t leaf_depth, size_t level);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 
 /**
@@ -61,7 +62,8 @@ const binary_tree_t *get_leaf(const binary_tree_t *tree)
  * Return: If the tree is perfect - 0.
  *         Otherwise - 1.
  */
-int is_perfect_recursive(const binary_tree_t *tree, size_t leaf_depth, size_t level)
+int is_perfect_recursive(const binary_tree_t *tree,
+		size_t leaf_depth, size_t level)
 {
 	if (tree != NULL)
 	{

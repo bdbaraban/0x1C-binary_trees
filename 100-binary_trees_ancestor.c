@@ -9,7 +9,8 @@ size_t depth(const binary_tree_t *tree);
  *
  * Return: If no common ancestors return NULL, else return common ancestor.
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+		const binary_tree_t *second)
 {
 	size_t first_depth, second_depth;
 
