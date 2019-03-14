@@ -1,7 +1,7 @@
 #include "binary_trees.h"
-int is_bst_helper(const binary_tree_t *tree, int largest);
+int is_bst_helper(const binary_tree_t *tree, int *largest);
 
-#define VERBOSE 0
+#define VERBOSE 1
 
 /**
  * binary_tree_is_bst - checks if a binary tree is a valid Binary Search Tree.
@@ -11,9 +11,11 @@ int is_bst_helper(const binary_tree_t *tree, int largest);
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
+	int tracker = 0;
+
 	if (tree == NULL)
 		return (0);
-	return (is_bst_helper(tree, 0));
+	return (is_bst_helper(tree, &tracker));
 }
 
 
@@ -48,16 +50,16 @@ int is_right(const binary_tree_t *node)
  *
  * Return: 1 if tree is a valid BST, and 0 otherwise
  */
-int is_bst_helper(const binary_tree_t *tree, int largest)
+int is_bst_helper(const binary_tree_t *tree, int *largest)
 {
 	int ret = 1;
 
 	if (tree != NULL)
 	{
 		ret *= is_bst_helper(tree->left, largest);
-		if (tree->n < largest)
+		if (tree->n < *largest)
 			return (0);
-		largest = tree->n;
+		*largest = tree->n;
 		if (is_left(tree) && !(tree->n < tree->parent->n))
 			return (0);
 		if (is_right(tree) && !(tree->n > tree->parent->n))
@@ -74,7 +76,7 @@ int is_bst_helper(const binary_tree_t *tree, int largest)
  *
  * Return: 1 if tree is a valid BST, and 0 otherwise
  */
-int is_bst_helper(const binary_tree_t *tree, int largest)
+int is_bst_helper(const binary_tree_t *tree, int *largest)
 {
 	int ret = 1;
 
@@ -83,11 +85,11 @@ int is_bst_helper(const binary_tree_t *tree, int largest)
 		printf("Moving to %d\n", tree->n);
 		ret *= is_bst_helper(tree->left, largest);
 		printf("done with left tree for %d: %d\n", tree->n, ret);
-		printf("largest = %d\n", largest);
-		if (tree->n < largest)
+		printf("largest = %d\n", *largest);
+		if (tree->n < *largest)
 			return (0);
-		largest = tree->n;
-		printf("largest = %d\n", largest);
+		*largest = tree->n;
+		printf("largest = %d\n", *largest);
 		if (is_left(tree))
 			printf("%d is %s than %d\n",
 				tree->n,
