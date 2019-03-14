@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 int is_bst_helper(const binary_tree_t *tree, int *largest);
 
-#define VERBOSE 1
+#define VERBOSE 0
 
 /**
  * binary_tree_is_bst - checks if a binary tree is a valid Binary Search Tree.
