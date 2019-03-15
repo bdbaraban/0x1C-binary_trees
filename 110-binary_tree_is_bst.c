@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+#include "limits.h"
 int is_bst_helper(const binary_tree_t *tree, int *largest);
 
 #define VERBOSE 0
@@ -11,7 +12,7 @@ int is_bst_helper(const binary_tree_t *tree, int *largest);
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-	int tracker = 0;
+	int tracker = INT_MIN;
 
 	if (tree == NULL)
 		return (0);
