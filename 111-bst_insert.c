@@ -7,40 +7,41 @@
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *new = NULL, *tmp = NULL;
-
-	if (tree != NULL)
+	if (tree)
 	{
-		if (*tree == NULL)
+		bst_t *curr = *tree;
+		if (curr == NULL)
+		{
+			return (*tree = (bst_t *)binary_tree_node(curr, value));
+		}
+		else if (value <= curr->n)
+		{
+			if (curr->left != NULL)
+				return (bst_insert(&curr->left, value));
+			return (curr->left = (bst_t *)binary_tree_node(curr, value));
+		}
+		/*else if (value > (*curr)->n) */
+		if (curr->right != NULL)
+			return (bst_insert(&curr->right, value));
+		return (curr->right = (bst_t *)binary_tree_node(curr, value));
+	}
+	else
+		return (NULL);
+}
+		/*if (*tree == NULL)
 		{
 			new = (bst_t *)binary_tree_node(*tree, value);
-			*tree = new;
 			binary_tree_print(*tree);
 		}
-		/*
-		else if ((*tree)->left == NULL)
+		else if (value < (*tree)->n)
 		{
-			new = (bst_t *)binary_tree_node(*tree, value);
-			(*tree)->left = new;
-			binary_tree_print(*tree);
+			new = bst_insert(&((*tree)->left), value);
 		}
-		else if ((*tree)->right == NULL)
+		else if (value > (*tree)->n)
 		{
-			new = (bst_t *)binary_tree_node(*tree, value);
-			(*tree)->right = new;
-			binary_tree_print(*tree);
+			new = bst_insert(&((*tree)->right), value);
 		}*/
-		else if ((*tree)->n > value)
-		{
-			new = binary_tree_insert_left(*tree, value);
-			binary_tree_print(*tree);
-		}
-		else if ((*tree)->n < value)
-		{
-			new = binary_tree_insert_right(*tree, value);
-			binary_tree_print(*tree);
-		}
-		else
+	/*	else
 		{
 			new = (bst_t *)binary_tree_node(*tree, value);
 			for (tmp = (*tree)->left->left; tmp; tmp = tmp->left)
@@ -48,10 +49,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 			tmp->left = new;
 			binary_tree_print(*tree);
 		}
-	}
-	return (new);
-}
-#include "binary_trees.h"
+*/
 
 /**
  * binary_tree_insert_left - Inserts a node as a left-child of
@@ -86,7 +84,6 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 
 	return (new);
 }
-#include "binary_trees.h"
 
 /**
  * binary_tree_insert_right - Insert a node as the right-child
