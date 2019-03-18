@@ -51,10 +51,7 @@ avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
 	int bfactor;
 
 	if (*tree == NULL)
-	{
-		*new = binary_tree_node(parent, value);
-		return (*new);
-	}
+		return (*new = binary_tree_node(parent, value));
 
 	if ((*tree)->n > value)
 	{
@@ -74,14 +71,14 @@ avl_t *avl_insert_recursive(avl_t **tree, avl_t *parent,
 	bfactor = balance(*tree);
 	if (bfactor > 1 && (*tree)->left->n > value)
 		*tree = binary_tree_rotate_right(*tree);
-	if (bfactor < -1 && (*tree)->right->n < value)
+	else if (bfactor < -1 && (*tree)->right->n < value)
 		*tree = binary_tree_rotate_left(*tree);
-	if (bfactor > 1 && (*tree)->left->n < value)
+	else if (bfactor > 1 && (*tree)->left->n < value)
 	{
 		(*tree)->left = binary_tree_rotate_left((*tree)->left);
 		*tree = binary_tree_rotate_right(*tree);
 	}
-	if (bfactor < -1 && (*tree)->right->n > value)
+	else if (bfactor < -1 && (*tree)->right->n > value)
 	{
 		(*tree)->right = binary_tree_rotate_right((*tree)->right);
 		*tree = binary_tree_rotate_left(*tree);
